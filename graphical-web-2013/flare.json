@@ -1,0 +1,1265 @@
+{
+  "name": "d3",
+  "children": [
+    {
+      "name": "arrays",
+      "children": [
+        {
+          "name": "ascending.js",
+          "size": 87,
+          "used": true
+        },
+        {
+          "name": "bisect.js",
+          "size": 764,
+          "used": true
+        },
+        {
+          "name": "descending.js",
+          "size": 88,
+          "used": true
+        },
+        {
+          "name": "entries.js",
+          "size": 136,
+          "used": true
+        },
+        {
+          "name": "extent.js",
+          "size": 569,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 379,
+          "used": true
+        },
+        {
+          "name": "keys.js",
+          "size": 100,
+          "used": true
+        },
+        {
+          "name": "map.js",
+          "size": 1307,
+          "used": true
+        },
+        {
+          "name": "max.js",
+          "size": 460,
+          "used": true
+        },
+        {
+          "name": "mean.js",
+          "size": 364,
+          "used": true
+        },
+        {
+          "name": "median.js",
+          "size": 265,
+          "used": true
+        },
+        {
+          "name": "merge.js",
+          "size": 84,
+          "used": true
+        },
+        {
+          "name": "min.js",
+          "size": 460,
+          "used": true
+        },
+        {
+          "name": "nest.js",
+          "size": 2116,
+          "used": true
+        },
+        {
+          "name": "pairs.js",
+          "size": 191,
+          "used": true
+        },
+        {
+          "name": "permute.js",
+          "size": 160,
+          "used": true
+        },
+        {
+          "name": "quantile.js",
+          "size": 239,
+          "used": true
+        },
+        {
+          "name": "range.js",
+          "size": 623,
+          "used": true
+        },
+        {
+          "name": "set.js",
+          "size": 814,
+          "used": true
+        },
+        {
+          "name": "shuffle.js",
+          "size": 184,
+          "used": true
+        },
+        {
+          "name": "sum.js",
+          "size": 282,
+          "used": true
+        },
+        {
+          "name": "transpose.js",
+          "size": 87,
+          "used": true
+        },
+        {
+          "name": "values.js",
+          "size": 113,
+          "used": true
+        },
+        {
+          "name": "zip.js",
+          "size": 343,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "behavior",
+      "children": [
+        {
+          "name": "behavior.js",
+          "size": 18,
+          "used": true
+        },
+        {
+          "name": "drag.js",
+          "size": 2184
+        },
+        {
+          "name": "index.js",
+          "size": 49
+        },
+        {
+          "name": "zoom.js",
+          "size": 10166,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "color",
+      "children": [
+        {
+          "name": "color.js",
+          "size": 96,
+          "used": true
+        },
+        {
+          "name": "hcl.js",
+          "size": 1062,
+          "used": true
+        },
+        {
+          "name": "hsl.js",
+          "size": 1458,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 86
+        },
+        {
+          "name": "lab.js",
+          "size": 1698,
+          "used": true
+        },
+        {
+          "name": "rgb.js",
+          "size": 7521,
+          "used": true
+        },
+        {
+          "name": "xyz.js",
+          "size": 217,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "compat",
+      "children": [
+        {
+          "name": "date.js",
+          "size": 62
+        },
+        {
+          "name": "index.js",
+          "size": 31
+        },
+        {
+          "name": "style.js",
+          "size": 860
+        }
+      ]
+    },
+    {
+      "name": "core",
+      "children": [
+        {
+          "name": "array.js",
+          "size": 126,
+          "used": true
+        },
+        {
+          "name": "class.js",
+          "size": 260,
+          "used": true
+        },
+        {
+          "name": "document.js",
+          "size": 414,
+          "used": true
+        },
+        {
+          "name": "functor.js",
+          "size": 118,
+          "used": true
+        },
+        {
+          "name": "identity.js",
+          "size": 40,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 48,
+          "used": true
+        },
+        {
+          "name": "noop.js",
+          "size": 22,
+          "used": true
+        },
+        {
+          "name": "ns.js",
+          "size": 564,
+          "used": true
+        },
+        {
+          "name": "rebind.js",
+          "size": 599,
+          "used": true
+        },
+        {
+          "name": "source.js",
+          "size": 45,
+          "used": true
+        },
+        {
+          "name": "subclass.js",
+          "size": 364,
+          "used": true
+        },
+        {
+          "name": "target.js",
+          "size": 45,
+          "used": true
+        },
+        {
+          "name": "true.js",
+          "size": 38,
+          "used": true
+        },
+        {
+          "name": "vendor.js",
+          "size": 389,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "dsv",
+      "children": [
+        {
+          "name": "csv.js",
+          "size": 49
+        },
+        {
+          "name": "dsv.js",
+          "size": 3748
+        },
+        {
+          "name": "index.js",
+          "size": 42
+        },
+        {
+          "name": "tsv.js",
+          "size": 67
+        }
+      ]
+    },
+    {
+      "name": "event",
+      "children": [
+        {
+          "name": "dispatch.js",
+          "size": 1643,
+          "used": true
+        },
+        {
+          "name": "drag.js",
+          "size": 1029,
+          "used": true
+        },
+        {
+          "name": "event.js",
+          "size": 1703,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 85,
+          "used": true
+        },
+        {
+          "name": "mouse.js",
+          "size": 1217,
+          "used": true
+        },
+        {
+          "name": "timer.js",
+          "size": 2407,
+          "used": true
+        },
+        {
+          "name": "touches.js",
+          "size": 346,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "format",
+      "children": [
+        {
+          "name": "collapse.js",
+          "size": 68,
+          "used": true
+        },
+        {
+          "name": "format-locale.js",
+          "size": 185
+        },
+        {
+          "name": "format-localized.js",
+          "size": 144
+        },
+        {
+          "name": "format.js",
+          "size": 4876
+        },
+        {
+          "name": "formatPrefix.js",
+          "size": 708
+        },
+        {
+          "name": "index.js",
+          "size": 74
+        },
+        {
+          "name": "requote.js",
+          "size": 129,
+          "used": true
+        },
+        {
+          "name": "round.js",
+          "size": 115
+        }
+      ]
+    },
+    {
+      "name": "geo",
+      "children": [
+        {
+          "name": "albers-usa.js",
+          "size": 3878,
+          "used": true
+        },
+        {
+          "name": "albers.js",
+          "size": 223,
+          "used": true
+        },
+        {
+          "name": "area.js",
+          "size": 1975,
+          "used": true
+        },
+        {
+          "name": "azimuthal-equal-area.js",
+          "size": 360
+        },
+        {
+          "name": "azimuthal-equidistant.js",
+          "size": 380
+        },
+        {
+          "name": "azimuthal.js",
+          "size": 561
+        },
+        {
+          "name": "bounds.js",
+          "size": 4884,
+          "used": true
+        },
+        {
+          "name": "cartesian.js",
+          "size": 889,
+          "used": true
+        },
+        {
+          "name": "centroid.js",
+          "size": 4691,
+          "used": true
+        },
+        {
+          "name": "circle.js",
+          "size": 2275,
+          "used": true
+        },
+        {
+          "name": "clip-antimeridian.js",
+          "size": 2923,
+          "used": true
+        },
+        {
+          "name": "clip-circle.js",
+          "size": 5876,
+          "used": true
+        },
+        {
+          "name": "clip-extent.js",
+          "size": 6493,
+          "used": true
+        },
+        {
+          "name": "clip-polygon.js",
+          "size": 2961,
+          "used": true
+        },
+        {
+          "name": "clip.js",
+          "size": 3958,
+          "used": true
+        },
+        {
+          "name": "compose.js",
+          "size": 250,
+          "used": true
+        },
+        {
+          "name": "conic-conformal.js",
+          "size": 962
+        },
+        {
+          "name": "conic-equal-area.js",
+          "size": 755,
+          "used": true
+        },
+        {
+          "name": "conic-equidistant.js",
+          "size": 800
+        },
+        {
+          "name": "conic.js",
+          "size": 372,
+          "used": true
+        },
+        {
+          "name": "distance.js",
+          "size": 581
+        },
+        {
+          "name": "equirectangular.js",
+          "size": 256,
+          "used": true
+        },
+        {
+          "name": "geo.js",
+          "size": 13,
+          "used": true
+        },
+        {
+          "name": "gnomonic.js",
+          "size": 266
+        },
+        {
+          "name": "graticule.js",
+          "size": 3016
+        },
+        {
+          "name": "greatArc.js",
+          "size": 1042
+        },
+        {
+          "name": "index.js",
+          "size": 703
+        },
+        {
+          "name": "interpolate.js",
+          "size": 1068
+        },
+        {
+          "name": "length.js",
+          "size": 1158
+        },
+        {
+          "name": "mercator.js",
+          "size": 1175,
+          "used": true
+        },
+        {
+          "name": "orthographic.js",
+          "size": 259
+        },
+        {
+          "name": "path-area.js",
+          "size": 1024,
+          "used": true
+        },
+        {
+          "name": "path-bounds.js",
+          "size": 543,
+          "used": true
+        },
+        {
+          "name": "path-buffer.js",
+          "size": 1345,
+          "used": true
+        },
+        {
+          "name": "path-centroid.js",
+          "size": 2171,
+          "used": true
+        },
+        {
+          "name": "path-context.js",
+          "size": 1013,
+          "used": true
+        },
+        {
+          "name": "path.js",
+          "size": 3089,
+          "used": true
+        },
+        {
+          "name": "point-in-polygon.js",
+          "size": 2406,
+          "used": true
+        },
+        {
+          "name": "projection.js",
+          "size": 3532,
+          "used": true
+        },
+        {
+          "name": "resample.js",
+          "size": 2944,
+          "used": true
+        },
+        {
+          "name": "rotation.js",
+          "size": 2333,
+          "used": true
+        },
+        {
+          "name": "spherical.js",
+          "size": 268,
+          "used": true
+        },
+        {
+          "name": "stereographic.js",
+          "size": 325
+        },
+        {
+          "name": "stream.js",
+          "size": 2514,
+          "used": true
+        },
+        {
+          "name": "transform.js",
+          "size": 685
+        },
+        {
+          "name": "transverse-mercator.js",
+          "size": 561
+        }
+      ]
+    },
+    {
+      "name": "geom",
+      "children": [
+        {
+          "name": "delaunay.js",
+          "size": 844
+        },
+        {
+          "name": "geom.js",
+          "size": 14,
+          "used": true
+        },
+        {
+          "name": "hull.js",
+          "size": 3392
+        },
+        {
+          "name": "index.js",
+          "size": 104
+        },
+        {
+          "name": "polygon.js",
+          "size": 2473,
+          "used": true
+        },
+        {
+          "name": "quadtree.js",
+          "size": 5329
+        },
+        {
+          "name": "voronoi.js",
+          "size": 14234
+        }
+      ]
+    },
+    {
+      "name": "interpolate",
+      "children": [
+        {
+          "name": "array.js",
+          "size": 446,
+          "used": true
+        },
+        {
+          "name": "ease.js",
+          "size": 2568,
+          "used": true
+        },
+        {
+          "name": "hcl.js",
+          "size": 525
+        },
+        {
+          "name": "hsl.js",
+          "size": 525
+        },
+        {
+          "name": "index.js",
+          "size": 235
+        },
+        {
+          "name": "interpolate.js",
+          "size": 680,
+          "used": true
+        },
+        {
+          "name": "lab.js",
+          "size": 341
+        },
+        {
+          "name": "number.js",
+          "size": 145,
+          "used": true
+        },
+        {
+          "name": "object.js",
+          "size": 406,
+          "used": true
+        },
+        {
+          "name": "rgb.js",
+          "size": 428,
+          "used": true
+        },
+        {
+          "name": "round.js",
+          "size": 149
+        },
+        {
+          "name": "string.js",
+          "size": 2677,
+          "used": true
+        },
+        {
+          "name": "transform.js",
+          "size": 1637,
+          "used": true
+        },
+        {
+          "name": "uninterpolate.js",
+          "size": 278
+        },
+        {
+          "name": "zoom.js",
+          "size": 1148
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "children": [
+        {
+          "name": "bundle.js",
+          "size": 1518
+        },
+        {
+          "name": "chord.js",
+          "size": 3573
+        },
+        {
+          "name": "cluster.js",
+          "size": 2660
+        },
+        {
+          "name": "force.js",
+          "size": 9055
+        },
+        {
+          "name": "hierarchy.js",
+          "size": 2793
+        },
+        {
+          "name": "histogram.js",
+          "size": 3510
+        },
+        {
+          "name": "index.js",
+          "size": 222
+        },
+        {
+          "name": "layout.js",
+          "size": 16
+        },
+        {
+          "name": "pack.js",
+          "size": 5272
+        },
+        {
+          "name": "partition.js",
+          "size": 1147
+        },
+        {
+          "name": "pie.js",
+          "size": 2825
+        },
+        {
+          "name": "stack.js",
+          "size": 5426
+        },
+        {
+          "name": "tree.js",
+          "size": 6991
+        },
+        {
+          "name": "treemap.js",
+          "size": 6549
+        }
+      ]
+    },
+    {
+      "name": "math",
+      "children": [
+        {
+          "name": "adder.js",
+          "size": 990,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 37
+        },
+        {
+          "name": "number.js",
+          "size": 59,
+          "used": true
+        },
+        {
+          "name": "random.js",
+          "size": 668
+        },
+        {
+          "name": "transform.js",
+          "size": 1686,
+          "used": true
+        },
+        {
+          "name": "trigonometry.js",
+          "size": 635,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "scale",
+      "children": [
+        {
+          "name": "bilinear.js",
+          "size": 212
+        },
+        {
+          "name": "category.js",
+          "size": 1501
+        },
+        {
+          "name": "identity.js",
+          "size": 653
+        },
+        {
+          "name": "index.js",
+          "size": 190
+        },
+        {
+          "name": "linear.js",
+          "size": 3332
+        },
+        {
+          "name": "log.js",
+          "size": 2647
+        },
+        {
+          "name": "nice.js",
+          "size": 590
+        },
+        {
+          "name": "ordinal.js",
+          "size": 2748
+        },
+        {
+          "name": "polylinear.js",
+          "size": 569
+        },
+        {
+          "name": "pow.js",
+          "size": 1304
+        },
+        {
+          "name": "quantile.js",
+          "size": 1206
+        },
+        {
+          "name": "quantize.js",
+          "size": 869
+        },
+        {
+          "name": "scale.js",
+          "size": 283
+        },
+        {
+          "name": "sqrt.js",
+          "size": 101
+        },
+        {
+          "name": "threshold.js",
+          "size": 680
+        }
+      ]
+    },
+    {
+      "name": "selection",
+      "children": [
+        {
+          "name": "append.js",
+          "size": 544,
+          "used": true
+        },
+        {
+          "name": "attr.js",
+          "size": 1974,
+          "used": true
+        },
+        {
+          "name": "call.js",
+          "size": 187,
+          "used": true
+        },
+        {
+          "name": "classed.js",
+          "size": 2426,
+          "used": true
+        },
+        {
+          "name": "data.js",
+          "size": 2953,
+          "used": true
+        },
+        {
+          "name": "datum.js",
+          "size": 174,
+          "used": true
+        },
+        {
+          "name": "each.js",
+          "size": 436,
+          "used": true
+        },
+        {
+          "name": "empty.js",
+          "size": 90,
+          "used": true
+        },
+        {
+          "name": "enter-insert.js",
+          "size": 538,
+          "used": true
+        },
+        {
+          "name": "enter-select.js",
+          "size": 678,
+          "used": true
+        },
+        {
+          "name": "enter.js",
+          "size": 676,
+          "used": true
+        },
+        {
+          "name": "filter.js",
+          "size": 673,
+          "used": true
+        },
+        {
+          "name": "html.js",
+          "size": 380,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 20,
+          "used": true
+        },
+        {
+          "name": "insert.js",
+          "size": 289,
+          "used": true
+        },
+        {
+          "name": "interrupt.js",
+          "size": 253,
+          "used": true
+        },
+        {
+          "name": "node.js",
+          "size": 265,
+          "used": true
+        },
+        {
+          "name": "on.js",
+          "size": 2855,
+          "used": true
+        },
+        {
+          "name": "order.js",
+          "size": 375,
+          "used": true
+        },
+        {
+          "name": "property.js",
+          "size": 1379,
+          "used": true
+        },
+        {
+          "name": "remove.js",
+          "size": 256,
+          "used": true
+        },
+        {
+          "name": "select.js",
+          "size": 825,
+          "used": true
+        },
+        {
+          "name": "selectAll.js",
+          "size": 686,
+          "used": true
+        },
+        {
+          "name": "selection.js",
+          "size": 1785,
+          "used": true
+        },
+        {
+          "name": "size.js",
+          "size": 125,
+          "used": true
+        },
+        {
+          "name": "sort.js",
+          "size": 471,
+          "used": true
+        },
+        {
+          "name": "style.js",
+          "size": 2082,
+          "used": true
+        },
+        {
+          "name": "text.js",
+          "size": 388,
+          "used": true
+        },
+        {
+          "name": "transition.js",
+          "size": 630,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "svg",
+      "children": [
+        {
+          "name": "arc.js",
+          "size": 2682
+        },
+        {
+          "name": "area-radial.js",
+          "size": 406
+        },
+        {
+          "name": "area.js",
+          "size": 2789
+        },
+        {
+          "name": "axis.js",
+          "size": 6448
+        },
+        {
+          "name": "brush.js",
+          "size": 13133
+        },
+        {
+          "name": "chord.js",
+          "size": 2087
+        },
+        {
+          "name": "diagonal-radial.js",
+          "size": 631
+        },
+        {
+          "name": "diagonal.js",
+          "size": 985
+        },
+        {
+          "name": "index.js",
+          "size": 211
+        },
+        {
+          "name": "line-radial.js",
+          "size": 511
+        },
+        {
+          "name": "line.js",
+          "size": 12175
+        },
+        {
+          "name": "svg.js",
+          "size": 13
+        },
+        {
+          "name": "symbol.js",
+          "size": 2405
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "children": [
+        {
+          "name": "day.js",
+          "size": 597
+        },
+        {
+          "name": "format-iso.js",
+          "size": 526
+        },
+        {
+          "name": "format-locale.js",
+          "size": 350
+        },
+        {
+          "name": "format-localized.js",
+          "size": 673
+        },
+        {
+          "name": "format-utc.js",
+          "size": 592
+        },
+        {
+          "name": "format.js",
+          "size": 10704
+        },
+        {
+          "name": "hour.js",
+          "size": 452
+        },
+        {
+          "name": "index.js",
+          "size": 265
+        },
+        {
+          "name": "interval.js",
+          "size": 1505
+        },
+        {
+          "name": "minute.js",
+          "size": 391
+        },
+        {
+          "name": "month.js",
+          "size": 367
+        },
+        {
+          "name": "scale-utc.js",
+          "size": 1077
+        },
+        {
+          "name": "scale.js",
+          "size": 4705
+        },
+        {
+          "name": "second.js",
+          "size": 391
+        },
+        {
+          "name": "time.js",
+          "size": 1757
+        },
+        {
+          "name": "week.js",
+          "size": 974
+        },
+        {
+          "name": "year.js",
+          "size": 375
+        }
+      ]
+    },
+    {
+      "name": "transition",
+      "children": [
+        {
+          "name": "attr.js",
+          "size": 2046,
+          "used": true
+        },
+        {
+          "name": "delay.js",
+          "size": 374,
+          "used": true
+        },
+        {
+          "name": "duration.js",
+          "size": 407,
+          "used": true
+        },
+        {
+          "name": "each.js",
+          "size": 738,
+          "used": true
+        },
+        {
+          "name": "ease.js",
+          "size": 388,
+          "used": true
+        },
+        {
+          "name": "filter.js",
+          "size": 560,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 21,
+          "used": true
+        },
+        {
+          "name": "remove.js",
+          "size": 222,
+          "used": true
+        },
+        {
+          "name": "select.js",
+          "size": 747,
+          "used": true
+        },
+        {
+          "name": "selectAll.js",
+          "size": 816,
+          "used": true
+        },
+        {
+          "name": "style.js",
+          "size": 1986,
+          "used": true
+        },
+        {
+          "name": "subtransition.js",
+          "size": 640,
+          "used": true
+        },
+        {
+          "name": "text.js",
+          "size": 268,
+          "used": true
+        },
+        {
+          "name": "transition.js",
+          "size": 2785,
+          "used": true
+        },
+        {
+          "name": "tween.js",
+          "size": 778,
+          "used": true
+        }
+      ]
+    },
+    {
+      "name": "xhr",
+      "children": [
+        {
+          "name": "html.js",
+          "size": 308,
+          "used": true
+        },
+        {
+          "name": "index.js",
+          "size": 73,
+          "used": true
+        },
+        {
+          "name": "json.js",
+          "size": 189,
+          "used": true
+        },
+        {
+          "name": "text.js",
+          "size": 91,
+          "used": true
+        },
+        {
+          "name": "xhr.js",
+          "size": 3846,
+          "used": true
+        },
+        {
+          "name": "xml.js",
+          "size": 89,
+          "used": true
+        }
+      ]
+    }
+  ]
+}
