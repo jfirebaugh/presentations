@@ -1,0 +1,39 @@
+.reveal .moustache {
+	font-family: Georgia;
+	position: relative;
+	left: -2%;
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
+
+.reveal .iD,
+.reveal .jQuery {
+	text-transform: none !important;
+}
+
+.reveal table td.numeric {
+	text-align: right;
+}
+
+.reveal table th {
+	text-align: center;
+	font-size: 120%;
+}
+
+.reveal table td.check,
+.reveal table td.ex {
+	text-align: center;
+	font-size: 110%;
+	font-weight: bold;
+	width: 50%;
+	color: green;
+}
+
+.reveal table td.check {
+	color: green;
+}
+
+.reveal table td.ex {
+	color: red;
+}
