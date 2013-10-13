@@ -249,6 +249,110 @@ items.classed('selected', function(d) { return d.selected; });
 </section>
 
 <section>
+  <h2>Templates</h2>
+  <h2 class="moustache" style="font-size: 1000%;">}</h2>
+  <img src="img/handlebars.png">
+</section>
+
+<section>
+  <h2>Templates</h2>
+
+  <aside class="notes">
+    * Start with simple static, server-rendered page.
+    * Add some client-side jQuery interactivity.
+    * Want to do something more sophisticated.
+    * Introduce backbone, rewrite entire page as a client-side
+      template.
+    * Want to do sophisticated dynamic DOM manipulation,
+      transitions, etc.
+    * Or: want to extract a component.
+    * Wind up building pieces programmatically anyway.
+  </aside>
+</section>
+
+<section>
+  <h2>Continuity of Expressiveness</h2>
+
+  <aside class="notes">
+
+  </aside>
+</section>
+
+<section>
+  <h2>Master the Data-Join</h2>
+
+  <aside class="notes">
+    The data-join is a way of declaratively specifying the relationship between your data and the DOM. Maintaining that
+    relationship necessarily involves updating the DOM in response to changes in the data.
+
+    Different frameworks take different approaches to solving this problem.
+
+    Backbone leaves it up to you to rerender your view in response to relevant change events from the model. In
+    practice, this means either rerendering the entire template, or introducing what is effectively a secondary
+    parallel rendering path, where specific portions of the DOM are updated in response to fine-grained change events.
+
+    Ember and angular recognized that this is an antipattern, and provide a template implementation that's smart enough
+    to automatically update in response to changes in the model -- providing you work within the constraints of the
+    model and observer framework that is provided.
+  </aside>
+</section>
+
+<section>
+  <h2>Master the Data-Join</h2>
+
+  <aside class="notes">
+    For iD, D3 data joins provide just the right combination: flexible enough to support a completely custom
+    data model and mutation strategy, powerful enough to support efficient, targeted updates to the DOM.
+  </aside>
+</section>
+
+<section>
+  <h2>Work-minimization Techniques</h2>
+  <ul>
+    <li>Declare static properties on the enter selection
+    <li>Declare dynamic properties on the update selection
+    <li>Batch updates: no individual "instance changed" events
+    <li>Filter the selection to the entities which actually changed
+  </ul>
+  <aside class="notes">
+    <dl>
+      <dt>Declare static structure on the enter selection</dt>
+      <dd>
+        If something never changes, don't waste time setting it on every render. This is usually things like constant
+        CSS class values, input type attributes.
+
+        It's also often the overall structure of the DOM. Set it up once by chaining off the enter selection.
+      </dd>
+
+      <dt>Declare dynamic properties on the update selection</dt>
+      <dd>
+        Things that change go in the update selection. Take advantage of the fact that the enter selection is
+        automatically merged into the update selection when you append.
+      </dd>
+
+      <dt>Batch updates: no individual "instance changed" events</dt>
+      <dd>
+        As a consequence of the iD data model, where mutations are expressed as action functions that take as input a
+        graph and return a new, modified graph, it doesn't have change events on the level of individual entities.
+        There's one change event, indicating that an action took place and the current graph has changed.
+
+        This is actually a good thing, because it means updates are batched. For instance, when you move the map feature
+        that represents a rectangular building, you produce new versions of at least five entities: the four corner
+        nodes, and the way containing those nodes that represents the building. It would be incredibly inefficient to
+        trigger five different change events and update the SVG in five individual steps.
+      </dd>
+
+      <dt>Filter the selection to the entities which actually changed</dt>
+      <dd>
+        So, instead, iD has a single "graph changed" event. However, the history representation is sophisticated enough
+        that it's possible to calculate the difference between two versions of the graph. We use that to update the
+        minimal set of DOM elements by filtering the selection down to the subset that actually changed.
+      </dd>
+    </dl>
+  </aside>
+</section>
+
+<section>
   <h2>Problem: D3 is too big!</h2>
   <iframe src="treemap.html" width="960px" height="500px"></iframe>
 </section>
