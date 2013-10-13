@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <link rel="stylesheet" href="css/reveal.min.css">
-  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="css/theme/simple.css" id="theme">
   <link rel="stylesheet" href="css/custom.css">
 
   <!-- For syntax highlighting -->
@@ -94,7 +94,7 @@
 </section>
 
 <section>
-  <iframe style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="http://id.dev/"></iframe>
+  <iframe class="stretch" src="http://openstreetmap.us/iD/master/"></iframe>
 </section>
 
 <section>
@@ -126,26 +126,13 @@
   </table>
 
   <aside class="notes">
-    Traditionally, D3 is thought of as a tool for
-    building data-driven visualizations. But in fact,
-    the core of D3 is highly general purpose, and is
-    perfectly suitable for the same problem domains as
-    jQuery -- namely just about any kind of website or
-    web application other than a completely static page.
-
-    In fact, viewed in a certain light, jQuery and D3
-    are so similar that I wound up building practically
-    the world's most boring feature comparison matrix.
-
-    Yes, there's one feature missing from D3 in this
-    matrix -- I'll come back to that later.
-
-    But now that I've build an app entirely with D3 and
-    entirely without jQuery, I strongly prefer the
-    former. Why is that?
-
-    Well, actually, I left out a row from the matrix.
-    What D3 has that jQuery doesn't is data binding.
+    Traditionally, D3 is thought of as a tool for building data-driven visualizations. But in fact, the core of D3 is
+    highly general purpose, and is perfectly suitable for the same problem domains as jQuery -- namely just about any
+    kind of website or web application other than a completely static page. In fact, viewed in a certain light, jQuery
+    and D3 are so similar that I wound up building practically the world's most boring feature comparison matrix. Yes,
+    there's one feature missing from D3 in this matrix -- I'll come back to that later. But now that I've build an app
+    entirely with D3 and entirely without jQuery, I strongly prefer the former. Why is that? Well, actually, I left out
+    a row from the matrix. What D3 has that jQuery doesn't is data binding.
 
   </aside>
 </section>
@@ -154,20 +141,11 @@
   <h2>Declarative > Imperative</h2>
 
   <aside class="notes">
-    One reason is that D3 allows me to write code in a
-    more declarative way than jQuery, making the
-    relationship between my data and its DOM
-    representation explicit and the specific sequence
-    of DOM operations implicit.
-
-    Writing declaratively is an advantage in this
-    domain because the data-DOM relationship is
-    important, and the gory details of how to build and
-    maintain that relationship are typically not.
-
-    Promoting the important and demoting the
-    unimportant makes my code clearer, more concise,
-    and easier to understand and reason about.
+    One reason is that D3 allows me to write code in a more declarative way than jQuery, making the relationship between
+    my data and its DOM representation explicit and the specific sequence of DOM operations implicit. Writing
+    declaratively is an advantage in this domain because the data-DOM relationship is important, and the gory details of
+    how to build and maintain that relationship are typically not. Promoting the important and demoting the unimportant
+    makes my code clearer, more concise, and easier to understand and reason about.
   </aside>
 </section>
 
@@ -213,7 +191,61 @@ items.classed('selected', function(d) { return d.selected; });
 </section>
 
 <section>
-  <h2>MV*</h2>
+  <img src="img/node-way-relation.png">
+
+  <aside class="notes">
+    The OSM data model consists of nodes, ways, and relations, and key-value tags on each of those data types.
+  </aside>
+</section>
+
+<section>
+  <img src="img/graph-1.png">
+
+  <aside class="notes">
+    Though we expose slightly different abstractions in the interface, iD implements the OSM data model internally. It
+    has Node, Way, and Relation classes (which we call entities generically), as well as Graph class that is a container
+    for a set of entities and their relationships to each other.
+  </aside>
+</section>
+
+<section>
+  <img src="img/graph-2.png">
+
+  <aside class="notes">
+    Finally, iD has a class that’s used to store the history of an editing session and to implement undo/redo.
+
+    Now, the traditional way to implement an edit history is via mutation. For each editing action you write a bit of
+    code that knows exactly how to change the graph in order to do the action, and a bit of code that knows how to
+    change the graph in order to undo it. Both of those bits of code live in a command object, and the history is a
+    stack of commands that have been performed.
+
+    This is <em>not</em> how iD does it.
+  </aside>
+</section>
+
+<section>
+  <img src="img/graph-3.png">
+
+  <aside class="notes">
+    In iD, entities and graphs are immutable. Entity and Graph objects do not change. Instead, editing actions produce
+    <em>new versions</em> of entities, and new graphs. The history is a sequence of graphs. Here, for example, the user
+    has edited the tags of a relation, producing a new version of that relation and a new graph. Now, here’s the clever
+    part: the other entity references in that second graph are referencing the same objects as in the first graph.
+  </aside>
+</section>
+
+<section>
+  <img src="img/graph-4.png">
+
+  <aside class="notes">
+  </aside>
+</section>
+
+<section>
+  <img src="img/graph-5.png">
+
+  <aside class="notes">
+  </aside>
 </section>
 
 <section>
@@ -247,8 +279,8 @@ js/lib/d3.v3.js: $(D3_FILES)
 <section>
   <h2>Problem: D3 is too small!</h2>
   <table class="fragment">
-    <tr><th></th><th>jQuery</th></th><th>D3</th></tr>
-    <tr><th>Dimensions</th><td class="check">✓</td></td><td class="ex">✗</td></tr>
+    <tr><th></th><th>jQuery</th><th>D3</th></tr>
+    <tr><th>Dimensions</th><td class="check">✓</td><td class="ex">✗</td></tr>
   </table>
 </section>
 
@@ -284,13 +316,13 @@ d3.selection.prototype.dimensions = function (dimensions) {
   // Full list of configuration options available here:
   // https://github.com/hakimel/reveal.js#configuration
   Reveal.initialize({
-      controls: true,
+      controls: false,
       progress: true,
       history: true,
       center: true,
 
       theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
       // Optional libraries used to extend on reveal.js
       dependencies: [
