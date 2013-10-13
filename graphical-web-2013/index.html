@@ -34,13 +34,16 @@
 <div class="slides">
 
 <section>
-  <h1 class="iD">iD</h1>
-  <h3>A Pure D3 Application</h3>
-  <p>
-    John Firebaugh<br/>
-    (m) MapBox<br/>
-    (t) jfire / (h) jfirebaugh
-  </p>
+  <header>
+    <h1 class="iD">iD</h1>
+    <h3>A Pure D3 Application</h3>
+  </header>
+  <author>John Firebaugh</author>
+  <ul class="affiliations">
+    <li>(m) MapBox</li>
+    <li>(t) jfire</li>
+    <li>(h) jfirebaugh</li>
+  </ul>
 </section>
 
 <section>
@@ -129,11 +132,12 @@
     Traditionally, D3 is thought of as a tool for building data-driven visualizations. But in fact, the core of D3 is
     highly general purpose, and is perfectly suitable for the same problem domains as jQuery -- namely just about any
     kind of website or web application other than a completely static page. In fact, viewed in a certain light, jQuery
-    and D3 are so similar that I wound up building practically the world's most boring feature comparison matrix. Yes,
-    there's one feature missing from D3 in this matrix -- I'll come back to that later. But now that I've build an app
-    entirely with D3 and entirely without jQuery, I strongly prefer the former. Why is that? Well, actually, I left out
-    a row from the matrix. What D3 has that jQuery doesn't is data binding.
+    and D3 are so similar that I wound up building practically the world's most boring feature comparison matrix.
 
+    Yes, there's one feature missing from D3 in this matrix -- I'll come back to that later.
+
+    But now that I've build an app entirely with D3 and entirely without jQuery, I strongly prefer the former. Why is
+    that? Well, actually, I left out a row from the matrix. What D3 has that jQuery doesn't is data binding.
   </aside>
 </section>
 
@@ -142,15 +146,12 @@
 
   <aside class="notes">
     One reason is that D3 allows me to write code in a more declarative way than jQuery, making the relationship between
-    my data and its DOM representation explicit and the specific sequence of DOM operations implicit. Writing
-    declaratively is an advantage in this domain because the data-DOM relationship is important, and the gory details of
-    how to build and maintain that relationship are typically not. Promoting the important and demoting the unimportant
-    makes my code clearer, more concise, and easier to understand and reason about.
-  </aside>
-</section>
+    my data and its DOM representation explicit and the specific sequence of DOM operations implicit.
 
-<section>
-  <h2>The Imperative-Declarative Continuum</h2>
+    Writing declaratively is an advantage in this domain because the data-DOM relationship is important, and the gory
+    details of how to build and maintain that relationship are typically not. Promoting the important and demoting the
+    unimportant makes my code clearer, more concise, and easier to understand and reason about.
+  </aside>
 </section>
 
 <section>
@@ -187,6 +188,44 @@ items.classed('selected', function(d) { return d.selected; });
 </section>
 
 <section>
+  <span style="position: relative; right: 0;">Raw DOM APIs</span>
+  <span style="position: relative; right: 0;">jQuery</span>
+  <span style="position: relative; right: 0;">D3</span>
+
+  <span class="fragment fade-in">
+    <span style="position: relative; right: 0;" class="fragment fade-out">?</span>
+  </span>
+
+  <span class="fragment fade-in">
+    <span style="position: relative; right: 0;" class="fragment fade-out">XSL</span>
+  </span>
+
+  <span class="fragment fade-in">
+    <span style="position: relative; right: 0;" class="fragment fade-out">Khan</span>
+  </span>
+
+  <div style="width: 960px; border-top: 2px solid black;">
+    <span style="float: left;">Imperative</span>
+    <span style="float: right;">Declarative</span>
+  </div>
+
+  <aside class="notes">
+    If you start reading about declarative languages, you'll -- not surprisingly -- find a lot of nerds arguing
+    about definitions. What makes one language or framework "imperative" and another one "declarative"? There's no hard
+    and fast answer. It's probably more productive to look at it as a spectrum.
+
+    So plotting tools for building and maintaining a relationship between data and a representation of that data on a
+    web page on this spectrum, we'd say that Raw DOM APIs are about the most imperative way we could do it; jQuery is
+    a bit more declarative, in that it introduces a concept of a collection of DOM elements that can be manipulated as
+    a group; and a tool with data-binding like D3 is more declarative still.
+
+    It's interesting to think about what's to the right of D3 on this continuum. I asked on Twitter. Some of the
+    suggestions were XSL, frameworks like Angular and Ember that support two-way data binding, which I think is a really
+    good answer, and Genghis Khan.
+  </aside>
+</section>
+
+<section>
   <h2>MV*</h2>
 </section>
 
@@ -202,7 +241,7 @@ items.classed('selected', function(d) { return d.selected; });
   <img src="img/graph-1.png">
 
   <aside class="notes">
-    Though we expose slightly different abstractions in the interface, iD implements the OSM data model internally. It
+    Though it exposes slightly different abstractions in the interface, iD implements the OSM data model internally. It
     has Node, Way, and Relation classes (which we call entities generically), as well as Graph class that is a container
     for a set of entities and their relationships to each other.
   </aside>
