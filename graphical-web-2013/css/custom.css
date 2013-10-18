@@ -1,10 +1,6 @@
 .reveal .moustache {
+    color: black;
 	font-family: Georgia;
-	position: relative;
-	left: -2%;
-	-webkit-transform: rotate(-90deg);
-	   -moz-transform: rotate(-90deg);
-	        transform: rotate(-90deg);
 }
 
 .reveal .iD,
