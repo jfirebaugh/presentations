@@ -171,21 +171,43 @@ items.classed('selected', function(d) { return d.selected; });
 </section>
 
 <section>
-  <span style="position: relative; right: 0;">Raw DOM APIs</span>
-  <span style="position: relative; right: 0;">jQuery</span>
-  <span style="position: relative; right: 0;">D3</span>
+  <svg width="100%" height="200">
+    <text x="0" y="190" text-anchor="left">Raw DOM APIs</text>
+    <text x="350" y="190" text-anchor="middle">jQuery</text>
+    <text x="600" y="190" text-anchor="middle">D3</text>
 
-  <span class="fragment fade-in">
-    <span style="position: relative; right: 0;" class="fragment fade-out">?</span>
-  </span>
+    <path d="M5,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+    <path d="M350,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+    <path d="M600,200 l0,-5" style="stroke: black; stroke-width: 3px" />
 
-  <span class="fragment fade-in">
-    <span style="position: relative; right: 0;" class="fragment fade-out">XSL</span>
-  </span>
+    <g class="fragment fade-in">
+      <g class="fragment fade-out">
+        <text x="800" y="190" text-anchor="middle">XSL</text>
+        <path d="M800,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+      </g>
+    </g>
 
-  <span class="fragment fade-in">
-    <span style="position: relative; right: 0;" class="fragment fade-out">Khan</span>
-  </span>
+    <g class="fragment fade-in">
+      <g class="fragment fade-out">
+        <text x="800" y="190" text-anchor="middle">Ember</text>
+        <path d="M800,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+      </g>
+    </g>
+
+    <g class="fragment fade-in">
+      <g class="fragment fade-out">
+        <text x="800" y="190" text-anchor="middle">Angular</text>
+        <path d="M810,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+      </g>
+    </g>
+
+    <g class="fragment fade-in">
+      <g class="fragment fade-out">
+        <image x="750" y="0" width="200" height="200" xlink:href="img/khan.jpg">
+        <path d="M800,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+      </g>
+    </g>
+  </svg>
 
   <div style="width: 960px; border-top: 2px solid black;">
     <span style="float: left;">Imperative</span>
