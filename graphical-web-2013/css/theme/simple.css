@@ -7,6 +7,14 @@
     src: url("../../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/league_gothic-webfont.woff") format("woff"), url("../../lib/font/league_gothic-webfont.ttf") format("truetype"), url("../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
     font-weight: normal;
     font-style: normal; }
+
+@font-face {
+    font-family: 'Norwester';
+    src: url("../../lib/font/norwester.eot");
+    src: url("../../lib/font/norwester.woff") format("woff"), url("../../lib/font/norwester.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+
 /**
  * A simple theme for reveal.js presentations, similar
  * to the default theme. The accent color is darkblue.
@@ -44,7 +52,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #e4592f;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: "Norwester", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: none;
