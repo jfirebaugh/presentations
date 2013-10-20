@@ -48,6 +48,37 @@
 </section>
 
 <section>
+  <iframe class="stretch" src="http://openstreetmap.us/iD/master/"></iframe>
+
+  <aside class="notes">
+    A friend of mine mentioned he was wanting to hear less about <em>what</em> people
+    were building and more about <em>how</em> they built it. I'm going to do my best to
+    do that in this talk, so I'll rush through this part about what iD is.
+
+    iD is an editor for OpenStreetMap, a map of the world that anyone can edit and whose
+    data is freely available under an open license. It replaced an older, Flash-based
+    editor as the default editor on the OpenStreetMap website a few months ago.
+  </aside>
+</section>
+
+<section>
+  <table style="margin: auto">
+    <tr><td class="numeric">11,728</td><td>sloc</td></tr>
+    <tr><td class="numeric">6,379</td><td>sloc tests</td></tr>
+    <tr><td class="numeric">10,000</td><td>users</td></tr>
+    <tr><td class="numeric">1,728</td><td>closed issues</td></tr>
+    <tr><td class="numeric">41</td><td>translations</td></tr>
+    <tr><td class="numeric">3</td><td>lead developers</td></tr>
+    <tr><td class="numeric">1</td><td>designer</td></tr>
+  </table>
+
+  <aside class="notes">
+    The most important design goal for iD was to make an editor that was more approachable
+    for users who are new to OpenStreetMap. So it prioritizes
+  </aside>
+</section>
+
+<section>
   <h2>Typical Web Application</h2>
   <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 5%" src="img/jquery.png">
   <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 10%" src="img/backbone.png">
@@ -77,22 +108,6 @@
 
 <section>
   <h2 style="font-size: 1000%">D3</h2>
-</section>
-
-<section>
-  <iframe class="stretch" src="http://openstreetmap.us/iD/master/"></iframe>
-</section>
-
-<section>
-  <table>
-    <tr><td class="numeric">11,728</td><td>sloc</td></tr>
-    <tr><td class="numeric">6,379</td><td>sloc tests</td></tr>
-    <tr><td class="numeric">10,000</td><td>users</td></tr>
-    <tr><td class="numeric">1,728</td><td>closed issues</td></tr>
-    <tr><td class="numeric">41</td><td>translations</td></tr>
-    <tr><td class="numeric">3</td><td>lead developers</td></tr>
-    <tr><td class="numeric">1</td><td>designer</td></tr>
-  </table>
 </section>
 
 <section>
@@ -126,6 +141,7 @@
 
 <section>
   <h2>Declarative > Imperative</h2>
+  <p>Promote the important; demote the unimportant</p>
 
   <aside class="notes">
     One reason is that D3 allows me to write code in a more declarative way than jQuery, making the relationship between
@@ -135,18 +151,6 @@
     details of how to build and maintain that relationship are typically not. Promoting the important and demoting the
     unimportant makes my code clearer, more concise, and easier to understand and reason about.
   </aside>
-</section>
-
-<section>
-  <h2 class="jQuery">jQuery</h2>
-  <pre><code data-trim>
-var li = $('li');
-if (layerSelected(li.data('layer-id'))) {
-    li.addClass('selected');
-} else {
-    li.removeClass('selected');
-}
-  </code></pre>
 </section>
 
 <section>
@@ -203,8 +207,8 @@ items.classed('selected', function(d) { return d.selected; });
 
     <g class="fragment fade-in">
       <g class="fragment fade-out">
-        <image x="750" y="0" width="200" height="200" xlink:href="img/khan.jpg"/>
-        <path d="M800,200 l0,-5" style="stroke: black; stroke-width: 3px" />
+        <image x="750" y="0" width="195" height="195" xlink:href="img/khan.jpg"/>
+        <path d="M850,200 l0,-5" style="stroke: black; stroke-width: 3px" />
       </g>
     </g>
   </svg>
@@ -230,15 +234,54 @@ items.classed('selected', function(d) { return d.selected; });
   </aside>
 </section>
 
-<section>
-  <h2>MV*</h2>
+<section class="mvc">
+  <h2>Model-View-<span class="fragment fade-out" data-fragment-index="1">*</span><span class="fragment fade-in" data-fragment-index="1">Whatever</span></h2>
+  <p>Frameworks encourage separation of business logic from presentation</p>
+
+  <aside class="notes">
+    Ok, frameworks. Virtually all client-side frameworks these days are built around a set of patterns that
+    separate the concerns of the application into parts that model the domain and business logic, parts that
+    represent the user interface and controls with which users view and interact with the data, and some
+    third thing that connects or coordinates or mediates between those two. There are various names with
+    various shades of meaning for this third thing, like "Controller" or "Presenter" or "ViewModel". The
+    differences are subtle and ultimately not very important, so folks have taken to just calling the third
+    part "Whatever". The Model and View that are the important part, because they encourage you to
+    separate your business logic from your presentation logic.
+  </aside>
+</section>
+
+<section class="mvc">
+  <h2>Immutable > Mutable<sup>*</sup></h2>
+  <p>* Depending on your problem domain.</p>
+
+  <aside class="notes">
+    I do want to look at one particular aspect of how views and models interact though, and that aspect
+    is what happens when the user makes a change in the UI.
+
+    In all frameworks that I know of, changing something in the UI produces a change in a model -- this
+    part seems pretty uncontroversial, right. I don't know, maybe Exo.js is different. And in all
+    frameworks that I know of, that change <em>mutates</em> the model: it changes the sole instance
+    of that model in place.
+
+    iD has models, and it has views, and it has that third coordinating "whatever" part, but
+    the way it handles changes is fundamentally different. In iD, models are immutable -- they don't
+    change. You might be thinking that a data model that doesn't change must make for a rather ineffective
+    editor, so let me describe what I mean by that.
+  </aside>
 </section>
 
 <section>
   <img src="img/node-way-relation.png">
 
   <aside class="notes">
-    The OSM data model consists of nodes, ways, and relations, and key-value tags on each of those data types.
+    The OSM data model has three types of entities: nodes, ways, and relations.
+
+    Nodes are geographical, latitude/longitude coordinates. Ways are ordered sequences of
+    nodes. And relations organize nodes, ways, and other relations into more or less
+    free-form higher-level features.
+
+    Each of those entity types can have key-value tags that describe what the feature
+    represents.
   </aside>
 </section>
 
@@ -246,9 +289,10 @@ items.classed('selected', function(d) { return d.selected; });
   <img src="img/graph-1.png">
 
   <aside class="notes">
-    Though it exposes slightly different abstractions in the interface, iD implements the OSM data model internally. It
-    has Node, Way, and Relation classes (which we call entities generically), as well as Graph class that is a container
-    for a set of entities and their relationships to each other.
+    Though it exposes slightly different abstractions in the interface, iD implements the
+    OSM data model internally. It has Node, Way, and Relation classes which inherit from a
+    generic Entity class, as well as Graph class that is a container for a set of entities
+    and their relationships to each other.
   </aside>
 </section>
 
@@ -257,13 +301,6 @@ items.classed('selected', function(d) { return d.selected; });
 
   <aside class="notes">
     Finally, iD has a class that’s used to store the history of an editing session and to implement undo/redo.
-
-    Now, the traditional way to implement an edit history is via mutation. For each editing action you write a bit of
-    code that knows exactly how to change the graph in order to do the action, and a bit of code that knows how to
-    change the graph in order to undo it. Both of those bits of code live in a command object, and the history is a
-    stack of commands that have been performed.
-
-    This is <em>not</em> how iD does it.
   </aside>
 </section>
 

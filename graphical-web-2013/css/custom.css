@@ -10,6 +10,9 @@
 
 .reveal table td.numeric {
 	text-align: right;
+    font-size: 120%;
+    color: #e4592f;
+    font-family: 'Norwester';
 }
 
 .reveal table th {
@@ -32,4 +35,9 @@
 
 .reveal table td.ex {
 	color: red;
+}
+
+.reveal section.mvc .fade-out.visible,
+.reveal section.mvc .fade-in:not(.visible) {
+    display: none;
 }
