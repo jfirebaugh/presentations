@@ -65,7 +65,7 @@
   <table style="margin: auto">
     <tr><td class="numeric">11,728</td><td>sloc</td></tr>
     <tr><td class="numeric">6,379</td><td>sloc tests</td></tr>
-    <tr><td class="numeric">10,000</td><td>users</td></tr>
+    <tr><td class="numeric">36,016</td><td>users</td></tr>
     <tr><td class="numeric">1,728</td><td>closed issues</td></tr>
     <tr><td class="numeric">41</td><td>translations</td></tr>
     <tr><td class="numeric">3</td><td>lead developers</td></tr>
@@ -197,7 +197,7 @@ items.classed('visible', function(layer) { return layer.visible; });
   </code></pre>
 
   <aside class="notes">
-    Here's the equivalent with D3. It's much shorter and -- at least once you understand
+    Here's the equivalent with D3. It's much shorter and -- once you understand
     the basics of D3 -- the intent is obvious. You're directly declaring the relationship
     between the <code>visible</code> class and the state of the underlying layer.
   </aside>
@@ -250,7 +250,7 @@ items.classed('visible', function(layer) { return layer.visible; });
   <aside class="notes">
     If you start reading about declarative languages, you'll -- not surprisingly -- find a lot of nerds arguing
     about definitions. What makes one language or framework "imperative" and another one "declarative"? There's no hard
-    and fast answer. It's probably more productive to look at it as a spectrum.
+    and fast answer. It's more productive to look at it as a spectrum.
 
     So plotting tools for building and maintaining a relationship between data and a representation of that data on a
     web page on this spectrum, we'd say that Raw DOM APIs are about the most imperative way we could do it; jQuery is
@@ -299,7 +299,7 @@ items.classed('visible', function(layer) { return layer.visible; });
     practice, this means either rerendering the entire template, or introducing what is effectively a secondary
     parallel rendering path, where specific portions of the DOM are updated in response to fine-grained change events.
 
-    Ember and angular recognized that this as an antipattern, and provide a template implementation that's smart enough
+    Ember and angular recognized this as an antipattern, and provide a template implementation that's smart enough
     to automatically update in response to changes in the model -- providing you work within the constraints of the
     model and observer framework that is provided.
   </aside>
@@ -307,17 +307,25 @@ items.classed('visible', function(layer) { return layer.visible; });
 
 <section>
   <h2>Master the Trinity</h2>
-  <code>enter</code>
-  <code>update</code>
-  <code>exit</code>
+  <ol style="list-style-type: none;">
+    <li>Enter</li>
+    <li>Update</li>
+    <li>Exit</li>
+  </ol>
 
   <aside class="notes">
-    D3's solution to
+    D3's solution to model to view updates is the data-joined selection.
 
-    TODO
+    If you want to understand D3 at a deep level, master the enter, update, exit trinity.
 
-    For iD, D3 data joins provide just the right combination: flexible enough to support a completely custom
-    data model and mutation strategy, powerful enough to support efficient, targeted updates to the DOM.
+    The enter selection contains placeholders for elements that exist in the data but not
+    in the DOM. The update selection contains existing elements, bound to data, and is
+    where most of the action in response to change happens. The exit selection contains
+    elements that are going away.
+
+    For iD, D3 data joins provide just the right combination: flexible enough to support
+    a completely custom data model and mutation strategy, powerful enough to support
+    efficient, targeted updates to the DOM.
   </aside>
 </section>
 
@@ -640,7 +648,7 @@ items.classed('visible', function(layer) { return layer.visible; });
         inkscape:connector-curvature="0" />
       <text
        xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Lado;-inkscape-font-specification:Sans"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Lato;-inkscape-font-specification:Sans"
        x="177.78685"
        y="348.28583"
        id="text2987"
@@ -651,7 +659,7 @@ items.classed('visible', function(layer) { return layer.visible; });
          y="348.28583">Sophistication</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Lado;-inkscape-font-specification:Sans"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Lato;-inkscape-font-specification:Sans"
        x="-248.14774"
        y="26.130743"
        id="text3759"
@@ -671,7 +679,14 @@ items.classed('visible', function(layer) { return layer.visible; });
   </svg>
 
   <aside class="notes">
+    With D3 I have the full power of a real programming language available from
+    the start. I can start off with building a static structure with selections,
+    and gradually increase the sophistication as needed, adding updates and transitions,
+    abstracting and refactoring using all the techniques I would normally use.
 
+    The downside here is that your designers might hate you. So far we've sidestepped
+    this by hiring designers that can code in D3. If you have some of those, give
+    them a raise.
   </aside>
 </section>
 
@@ -702,7 +717,7 @@ js/lib/d3.v3.js: $(D3_FILES)
 	node_modules/.bin/smash $(D3_FILES) > $@
   </code></pre>
 </section>
-                    
+
 <section>
   <h2>Problem: D3 is too small!</h2>
   <table class="fragment">
@@ -733,7 +748,7 @@ d3.selection.prototype.dimensions = function (dimensions) {
   </ul>
 </section>
 
-<section>
+<section data-background="img/three.png" data-background-position="bottom left" data-background-size="700px">
   <h2>Just Right</h2>
   <p>Pick technology that fits <em>your</em> problem domain.</p>
 
