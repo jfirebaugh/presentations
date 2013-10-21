@@ -27,7 +27,9 @@
  *********************************************/
 body {
   background: white;
-  background-color: white; }
+  background-color: white;
+  background-image: url(../../img/d3_background_2.png);
+  background-size: cover; }
 
 .reveal {
   font-family: "Lato", sans-serif;
