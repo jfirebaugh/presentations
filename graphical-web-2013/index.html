@@ -95,14 +95,14 @@
 
 <section>
   <h2>Hipster Web Application</h2>
-  <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 5%" src="img/zepto.png">
-  <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 5%" src="img/ember.png">
+  <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 5%;" src="img/zepto.png">
+  <img style="display: inline; width: 25%; vertical-align: middle; margin-right: 5%;" src="img/ember.png">
   <img style="display: inline; width: 25%; vertical-align: middle; " src="img/handlebars.png">
 
   <aside class="notes">
     Or, you might choose Zepto and Ember.js and Handlebars if you're really cool. Although, actually,
     web technologies move so fast, by calling this a hipster web app I've probably only outed myself
-    as a square. Someone's going to come up afterward and say "Hey man, I build all my apps with Exo.js
+    as a square. Someone's going to come up afterward and say "Hey man, I build all my apps with Ursine.js
     -- yeah, you probably haven't heard of it."
   </aside>
 </section>
@@ -173,20 +173,34 @@
   <pre><code data-trim>
 $('.layers li').each(function() {
     var li = $(this);
-    if (layerSelected(li.data('layer-id'))) {
-        li.addClass('selected');
+    if (layerVisible(li.data('layer-id'))) {
+        li.addClass('visible');
     } else {
-        li.removeClass('selected');
+        li.removeClass('visible');
     }
 });
   </code></pre>
+
+  <aside class="notes">
+    Here's an example of what I mean. iD has a list of background layers and indicates the
+    currently visible layers via a <code>visible</code> class. Suppose you need to update
+    the DOM to match the current state. In jQuery, you have to iterate over each list item,
+    and call <code>addClass</code> or <code>removeClass</code> as appropriate. Highly
+    imperative approach.
+  </aside>
 </section>
 
 <section>
   <h2>D3</h2>
   <pre><code data-trim>
-items.classed('selected', function(d) { return d.selected; });
+items.classed('visible', function(layer) { return layer.visible; });
   </code></pre>
+
+  <aside class="notes">
+    Here's the equivalent with D3. It's much shorter and -- at least once you understand
+    the basics of D3 -- the intent is obvious. You're directly declaring the relationship
+    between the <code>visible</code> class and the state of the underlying layer.
+  </aside>
 </section>
 
 <section>
@@ -267,20 +281,25 @@ items.classed('selected', function(d) { return d.selected; });
 
 
 <section>
-  <h2>Model -> View Change</h2>
+  <h2>Model ⇒ View Change</h2>
+  <ul>
+    <li>Backbone: up to you</li>
+    <li>Ember/Angular: smart templates</li>
+  </ul>
 
   <aside class="notes">
     I do want to look at one particular aspect of how views and models are coordinated, and that is
-    how do you deal with change? Either change in a model that needs to produce a change in a view,
+    how they deal with change. Both change in a model that needs to produce a change in a view,
     and the reverse, user interaction in the view that needs to be pushed back to the model.
 
-    Start with the forward direction. Different frameworks take different approaches to solving this problem.
+    Start with the forward direction. Different frameworks take different approaches to solving
+    this problem.
 
     Backbone leaves it up to you to rerender your view in response to relevant change events from the model. In
     practice, this means either rerendering the entire template, or introducing what is effectively a secondary
     parallel rendering path, where specific portions of the DOM are updated in response to fine-grained change events.
 
-    Ember and angular recognized that this is an antipattern, and provide a template implementation that's smart enough
+    Ember and angular recognized that this as an antipattern, and provide a template implementation that's smart enough
     to automatically update in response to changes in the model -- providing you work within the constraints of the
     model and observer framework that is provided.
   </aside>
@@ -293,6 +312,10 @@ items.classed('selected', function(d) { return d.selected; });
   <code>exit</code>
 
   <aside class="notes">
+    D3's solution to
+
+    TODO
+
     For iD, D3 data joins provide just the right combination: flexible enough to support a completely custom
     data model and mutation strategy, powerful enough to support efficient, targeted updates to the DOM.
   </aside>
@@ -345,13 +368,13 @@ items.classed('selected', function(d) { return d.selected; });
 </section>
 
 <section>
-  <h2>Model <- View Change</h2>
+  <h2>Model ⇐ View Change</h2>
 
   <aside class="notes">
     What about the opposite direction?
 
     In all frameworks that I know of, changing something in the UI produces a change in a model -- this
-    part seems pretty uncontroversial, right. I don't know, maybe Exo.js is different. And in all
+    part seems pretty uncontroversial, right. I don't know, maybe Ursine.js is different. And in all
     frameworks that I know of, that change <em>mutates</em> the model: it changes the sole instance
     of that model in place.
 
@@ -411,6 +434,16 @@ items.classed('selected', function(d) { return d.selected; });
   <img src="img/graph-4.png">
 
   <aside class="notes">
+    Here's where immutability really pays off: undo.
+
+    The typical implementation of undo involves pairing every action that can be performed with
+    and equal and opposite undo action. You wind up doubling the amount of code you need to write,
+    and you have to be very careful to keep the do and undo paths in sync or you could end up
+    corrupting the edit history.
+
+    In contrast, if entities and graphs are immutable, undoing a change is trivial -- all you
+    need to do is adjust the "current graph" reference to point to the previous version, and
+    re-render.
   </aside>
 </section>
 
@@ -418,13 +451,9 @@ items.classed('selected', function(d) { return d.selected; });
   <img src="img/graph-5.png">
 
   <aside class="notes">
-  </aside>
-</section>
-
-<section>
-  <h2>Immutable > Mutable</h2>
-
-  <aside class="notes">
+    This is an approach that wouldn't have been possible, as far as I know, in any off-the-shelf
+    framework. But it was possible with D3 because D3 enforces so few constraints on the representation
+    of your data model and on how change is propagated from view back to the models.
   </aside>
 </section>
 
