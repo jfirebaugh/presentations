@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>iD: A Pure D3 Application</title>
+  <title>Application building with D3</title>
 
   <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
   <meta name="author" content="Hakim El Hattab">
@@ -36,8 +36,7 @@
 
 <section data-background="img/three.png" data-background-position="bottom left" data-background-size="700px">
   <header>
-    <h1 class="iD">iD</h1>
-    <h3>A Pure D3 Application</h3>
+    <h1>Application building with D3</h1>
   </header>
   <p>John Firebaugh</p>
   <ul class="affiliations" style="list-style-type: none;">
@@ -62,10 +61,10 @@
 </section>
 
 <section>
-  <table style="margin: auto">
+  <table style="position: absolute; right: 260px;">
     <tr><td class="numeric">11,728</td><td>sloc</td></tr>
     <tr><td class="numeric">6,379</td><td>sloc tests</td></tr>
-    <tr><td class="numeric">36,016</td><td>users</td></tr>
+    <tr><td class="numeric" id="user-count">36,010</td><td>users</td></tr>
     <tr><td class="numeric">1,728</td><td>closed issues</td></tr>
     <tr><td class="numeric">41</td><td>translations</td></tr>
     <tr><td class="numeric">3</td><td>lead developers</td></tr>
@@ -78,6 +77,14 @@
     over power user features and covering every possible editing use case. There's another
     editor that covers that ground.
   </aside>
+
+  <script>
+    var userCount = 36010;
+    setInterval(function() {
+      userCount++;
+      document.getElementById('user-count').textContent = userCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }, 3000);
+  </script>
 </section>
 
 <section>
@@ -316,12 +323,12 @@ items.classed('visible', function(layer) { return layer.visible; });
   <aside class="notes">
     D3's solution to model to view updates is the data-joined selection.
 
-    If you want to understand D3 at a deep level, master the enter, update, exit trinity.
-
     The enter selection contains placeholders for elements that exist in the data but not
     in the DOM. The update selection contains existing elements, bound to data, and is
     where most of the action in response to change happens. The exit selection contains
     elements that are going away.
+
+    If you want to understand D3 at a deep level, master the enter, update, exit trinity.
 
     For iD, D3 data joins provide just the right combination: flexible enough to support
     a completely custom data model and mutation strategy, powerful enough to support
@@ -356,7 +363,7 @@ items.classed('visible', function(layer) { return layer.visible; });
       <dt>Batch updates: no individual "instance changed" events</dt>
       <dd>
         As a consequence of the iD data model, where mutations are expressed as action functions that take as input a
-        graph and return a new, modified graph, it doesn't have change events on the level of individual entities.
+        graph and return a new, modified graph, it doesn't have change events on the level of individual model instances.
         There's one change event, indicating that an action took place and the current graph has changed.
 
         This is actually a good thing, because it means updates are batched. For instance, when you move the map feature
@@ -748,15 +755,14 @@ d3.selection.prototype.dimensions = function (dimensions) {
   </ul>
 </section>
 
-<section data-background="img/three.png" data-background-position="bottom left" data-background-size="700px">
-  <h2>Just Right</h2>
+<section>
+  <img src="img/3_Bowls.png">
   <p>Pick technology that fits <em>your</em> problem domain.</p>
 
   <aside class="notes">
     In the end, D3 was just right for the problem space of a rich editor for
     geographic data that required a custom data model -- in particular an immutable
-    graph -- sophisticated SVG manipulation, and tight control over how to respond
-    to partial changes.
+    graph -- and tight control over how to respond to partial changes.
 
     This is not to say that jQuery, Backbone, Ember et al aren't the right choice
     for many other applications -- my advice is to pick the technology that
