@@ -44,6 +44,7 @@
     <li style="display: inline; padding: 10px;"><i class="icon-twitter"></i> jfire</li>
     <li style="display: inline; padding: 10px;"><i class="icon-github"></i> jfirebaugh</li>
   </ul>
+  <aside class="nb">(press S for notes)</aside>
 </section>
 
 <section>
@@ -697,9 +698,9 @@ items.classed('visible', function(layer) { return layer.visible; });
   </aside>
 </section>
 
-<section>
+<section data-state="treemap">
   <h2>Problem: D3 is too big!</h2>
-  <iframe src="treemap.html" width="960px" height="500px"></iframe>
+  <iframe id="treemap" width="960px" height="500px"></iframe>
 </section>
 
 <section>
@@ -773,9 +774,12 @@ d3.selection.prototype.dimensions = function (dimensions) {
     That said, I think using D3 as the primary technology is a great fit for many
     more problem domains than is commonly realized. I encourage you to see if it
     fits yours.
-
-    Thank you!
   </aside>
+</section>
+
+<section>
+  <h2>Thanks!</h2>
+  <aside class="nb">Illustrations: <a href="http://meghanhade.com/">Meghan Hade</a></aside>
 </section>
 
 </div>
@@ -806,6 +810,10 @@ d3.selection.prototype.dimensions = function (dimensions) {
       { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
       ]
   });
+
+  Reveal.addEventListener('treemap', function() {
+    document.getElementById('treemap').src = "treemap.html";
+  }, false);
 </script>
 </body>
 </html>

@@ -41,3 +41,7 @@
 .reveal section.mvc .fade-in:not(.visible) {
     display: none;
 }
+
+.reveal aside.nb {
+    font-size: 50%;
+}
